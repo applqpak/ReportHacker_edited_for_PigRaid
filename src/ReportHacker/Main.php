@@ -24,13 +24,9 @@
             $sender->sendMessage(TF::RED . $name . " was not found.");
             return true;
           } else {
-            foreach($this->getServer()->getOnlinePlayers() as $p) {
-              if($p->isOp()) {
-                $p->sendMessage(TF::YELLOW . $sender_name . " reported " . $name . " for using hacks/mods!");
-              }
-            }
-            $player->sendMessage(TF::YELLOW . $sender_name . " has reported you for using hacks/mods!");
-            $sender->sendMessage(TF::GREEN . "Sent report to all op(s).");
+            $this->getServer()->broadcastMessage(TF::YELLOW . $sender_name . " has reported " . $name . " for using hacks/mods/breaking rules!");
+            $player->sendMessage(TF::YELLOW . $sender_name . " has reported you for using hacks/mods/breaking rules!");
+            $sender->sendMessage(TF::GREEN . "Sent report to all staff online.");
             return true;
           }
         }
