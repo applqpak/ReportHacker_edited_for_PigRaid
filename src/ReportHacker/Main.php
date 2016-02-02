@@ -21,12 +21,7 @@
           $name = $args[0];
           $player = $this->getServer()->getPlayer($name);
           if($player === null) {
-            foreach($this->getServer()->getOnlinePlayers() as $p) {
-              if($p->isOp()) {
-                $p->sendMessage(TF::YELLOW . $sender_name . " reported " . $name . " for using hacks/mods!");
-              }
-            }
-            $sender->sendMessage(TF::GREEN . "Sent report to all op(s).");
+            $sender->sendMessage(TF::RED . $name . " was not found.");
             return true;
           } else {
             foreach($this->getServer()->getOnlinePlayers() as $p) {
